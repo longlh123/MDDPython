@@ -38,51 +38,51 @@ df = m.convertToDataFrame()
 df = df.set_index("Respondent.ID")
 
 obj_skus_define = {
-    '_I1' : { 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 9']},
-    '_I1a' : { 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng'], 'groups' : ['Group 9']},
-    '_I2' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 9']},
-    '_I2a' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng'], 'groups' : ['Group 9']},
-    '_I3' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 10']},
-    '_I3a' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng'], 'groups' : ['Group 10']},
-    '_I4a' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 12']},
-    '_I4' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 12']},
-    '_I5' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6', 'Group 13']},
-    '_I6' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6', 'Group 7', 'Group 13']},
-    '_I7' : { 'variant' : 'Nội thất', 'segment' : 'Gía rẻ', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 7']},
-    '_I8' : { 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 9']},
-    '_I8a' : { 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng'], 'groups' : ['Group 9']},
-    '_I9' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 10']},
-    '_I10' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6']},
-    '_I11' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 12']},
-    '_I12' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6']},
-    '_I13' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6']},
-    '_I14' : { 'variant' : 'Nội thất', 'segment' : 'Gía rẻ', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 7']},
-    '_I15' : { 'variant' : 'Nội thất', 'segment' : 'Gía rẻ', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6']},
-    '_E1' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 1']},
-    '_E2' : { 'variant' : 'Ngoại thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 2']},
-    '_E3' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 1']},
-    '_E4B' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 5']},
-    '_E4M' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 5']},
-    '_E4' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 5']},
-    '_E5' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 8', 'Group 13']},
-    '_E6' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 1']},
-    '_E7' : { 'variant' : 'Ngoại thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 2']},
-    '_E8' : { 'variant' : 'Ngoại thất', 'segment' : 'Cận cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 5']},
-    '_E9' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 8']},
-    '_E10' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 8']},
-    '_E11' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 8']},
-    '_W1' : { 'variant' : 'Chống thấm', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 3']},
-    '_W3' : { 'variant' : 'Chống thấm', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Đà Nẵng'], 'groups' : ['Group 4']},
-    '_W2' : { 'variant' : 'Chống thấm', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 3']},
-    '_W4' : { 'variant' : 'Chống thấm', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Đà Nẵng'], 'groups' : ['Group 4']},
-    '_T1' : { 'variant' : 'Sơn dầu', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 11']},
-    '_T2' : { 'variant' : 'Sơn dầu', 'segment' : 'Trung cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ'], 'groups' : ['Group 11']},
-    '_T3' : { 'variant' : 'Sơn dầu', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 11']},
-    '_I5e' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']},
-    '_I6e' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']},
-    '_E5e' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']},
-    '_E12e' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']},
-    '_E13e' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']}
+    '_I1' : { 'label' : 'Sơn nội thất Dulux Ambiance 5 trong 1 - bóng mờ', 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 9']},
+    '_I1a' : { 'label' : 'Sơn nội thất Dulux Ambiance 5 trong 1 - siêu bóng', 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng'], 'groups' : ['Group 9']},
+    '_I2' : { 'label' : 'Sơn nội thất Dulux Easy Clean kháng virus - mờ', 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 9']},
+    '_I2a' : { 'label' : 'Sơn nội thất Dulux Easy Clean kháng virus - bóng', 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng'], 'groups' : ['Group 9']},
+    '_I3' : { 'label' : 'Sơn nội thất Dulux Easy Clean (Lau chùi hiệu quả) - mờ', 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 10']},
+    '_I3a' : { 'label' : 'Sơn nội thất Dulux Easy Clean (Lau chùi hiệu quả) - bóng', 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng'], 'groups' : ['Group 10']},
+    '_I4a' : { 'label' : 'Sơn nội thất Dulux Inspire - bóng', 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 12']},
+    '_I4' : { 'label' : 'Sơn nội thất Dulux Inspire - mờ', 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 12']},
+    '_I5' : { 'label' : 'Sơn nội thất Maxilite Total - mờ', 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6', 'Group 13']},
+    '_I6' : { 'label' : 'Sơn nội thất Maxilite Hi-Cover', 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6', 'Group 7', 'Group 13']},
+    '_I7' : { 'label' : 'Sơn nội thất Maxilite Smooth', 'variant' : 'Nội thất', 'segment' : 'Gía rẻ', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 7']},
+    '_I8' : { 'label' : 'Sơn nội thất JOTUN Majestic Dep Hoan Hao - mờ', 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 9']},
+    '_I8a' : { 'label' : 'Sơn nội thất JOTUN Majestic Dep Hoan Hao - bóng', 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng'], 'groups' : ['Group 9']},
+    '_I9' : { 'label' : 'Sơn nội thất Jotun Essence Dễ Lau Chùi ', 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 10']},
+    '_I10' : { 'label' : 'Sơn nội thất Jotun Jotaplast', 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6']},
+    '_I11' : { 'label' : 'Sơn nội thất TOA 4 Seasons Top Silk', 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 12']},
+    '_I12' : { 'label' : 'Sơn nội thất Nippon Matex', 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6']},
+    '_I13' : { 'label' : 'Sơn nội thất Nippon Matex Sắc Màu Dịu Mát', 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6']},
+    '_I14' : { 'label' : 'Sơn nội thất Nippon Vatex', 'variant' : 'Nội thất', 'segment' : 'Gía rẻ', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 7']},
+    '_I15' : { 'label' : 'Sơn nội thất Expo Easy', 'variant' : 'Nội thất', 'segment' : 'Gía rẻ', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6']},
+    '_E1' : { 'label' : 'Sơn ngoại thất cao cấp Dulux Weathershield', 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 1']},
+    '_E2' : { 'label' : 'Sơn ngoại thất siêu cao cấp Dulux Weathershield Powerflexx', 'variant' : 'Ngoại thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 2']},
+    '_E3' : { 'label' : 'Sơn ngoại thất cao cấp Dulux Weathershield Colour Protect', 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 1']},
+    '_E4' : { 'label' : 'Sơn ngoại thất Dulux Inspire Bóng/Mờ', 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 5']},
+    '_E4B' : { 'label' : 'Sơn ngoại thất Dulux Inspire Bóng', 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 5']},
+    '_E4M' : { 'label' : 'Sơn ngoại thất Dulux Inspire Mờ', 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 5']},
+    '_E5' : { 'label' : 'Sơn ngoại thất Maxilite Tough - mờ', 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 8', 'Group 13']},
+    '_E6' : { 'label' : 'Sơn ngoại thất Jotashield Chong Phai Mau', 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 1']},
+    '_E7' : { 'label' : 'Sơn ngoại thất Jotashield Ben Mau Toi Uu', 'variant' : 'Ngoại thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 2']},
+    '_E8' : { 'label' : 'Sơn ngoại thất Jotun Essence ngoại thất bền đẹp', 'variant' : 'Ngoại thất', 'segment' : 'Cận cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 5']},
+    '_E9' : { 'label' : 'Sơn ngoại thất Jotun Jotatough', 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 8']},
+    '_E10' : { 'label' : 'Sơn ngoại thất Nippon Super Matex', 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 8']},
+    '_E11' : { 'label' : 'Sơn ngoại thất Expo Rainkote', 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 8']},
+    '_W1' : { 'label' : 'Chất Chống thấm tường Dulux Aquatech Flex', 'variant' : 'Chống thấm', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 3']},
+    '_W3' : { 'label' : 'Chất Chống thấm tường Dulux Aquatech Chống thấm vượt trội', 'variant' : 'Chống thấm', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Đà Nẵng'], 'groups' : ['Group 4']},
+    '_W2' : { 'label' : 'Sơn Chống thấm tường Jotun Waterguard', 'variant' : 'Chống thấm', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 3']},
+    '_W4' : { 'label' : 'Chất chống thấm tường Kova CT11A Gold', 'variant' : 'Chống thấm', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Đà Nẵng'], 'groups' : ['Group 4']},
+    '_T1' : { 'label' : 'Sơn dầu Maxilite', 'variant' : 'Sơn dầu', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 11']},
+    '_T2' : { 'label' : 'Sơn dầu Alkyld/ Sơn dầu dành cho gỗ & kim loại - Bạch Tuyết', 'variant' : 'Sơn dầu', 'segment' : 'Trung cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ'], 'groups' : ['Group 11']},
+    '_T3' : { 'label' : 'Sơn dầu dành cho gỗ & kim loại - Lobster', 'variant' : 'Sơn dầu', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 11']},
+    '_I5e' : { 'label' : 'Sơn nội thất Maxilite Total - mờ (bao bì mới)', 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']},
+    '_I6e' : { 'label' : 'Sơn nội thất Maxilite Hi-Cover - mờ (bao bì mới)', 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']},
+    '_E5e' : { 'label' : 'Sơn ngoại thất Maxilite Tough - mờ (bao bì mới)', 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']},
+    '_E12e' : { 'label' : 'Sơn ngoại thất Jotun Tough Shield - mờ', 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']},
+    '_E13e' : { 'label' : 'Sơn ngoại thất Jotun Tough Shield Max - mờ', 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']}
 }
 
 cities = ["Hồ Chí Minh","Hà Nội", "Hải Phòng","Đà Nẵng", "Cần Thơ"]
@@ -157,7 +157,6 @@ df_merge.set_index(["Respondent.ID","_Q1","Q5_SKU","Q5_PRICE","Q5b_PRICE","PRICE
 df_merge = df_merge.stack().str.split(',', expand=True).stack().reset_index().rename(columns={0 : "GROUP"})
 df_merge.drop(["level_6","level_7"], axis=1, inplace=True)
 
-"""
 df_merge.to_excel(writer, sheet_name="Q5B_MERGE")
 worksheet = writer.sheets["Q5B_MERGE"]
 
@@ -200,7 +199,6 @@ for i, c in obj_counts.items():
     worksheet = writer.sheets[i]
 
 writer.save()
-"""
 
 presentation = Presentation()
 title_slide_layout = presentation.slide_layouts[0]
@@ -222,10 +220,7 @@ for s in obj_skus_define.keys():
             
         boxplot = df_merge_filter.boxplot(column=["PRICE"], by="_Q1", ax=ax, rot=0, grid=True, showfliers=True, showmeans=True, meanline=True, sym="g o")
         
-        for tick in range(len(boxplot.get_xticklabels())):
-            boxplot.text(tick-.2, 123, 212, horizontalalignment='center', color='w', weight='semibold')
-
-        boxplot.set_title("SKU {}".format(s[1:len(s)]))
+        boxplot.set_title("SKU {} - {}".format(s[1:len(s)], obj_skus_define[s]['label']))
         boxplot.set_xlabel('City')
         boxplot.set_ylabel('Price')
 
@@ -242,16 +237,7 @@ for s in obj_skus_define.keys():
         
         pic = shapes.add_picture(r'{}/images/{}'.format(project_name, pic_name), left, top)
 
-"""
-
-df_merge.boxplot(ax = ax, by="_Q1", column=["PRICE"], grid=True)
-
-plt.savefig(r'{}/images/{}'.format(project_name,"pic_name"))
-
-plt.show()
-"""
 pptx_name = 'python - tablo.pptx'
-
 presentation.save('{}/{}'.format(project_name, pptx_name))
 
 """

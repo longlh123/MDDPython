@@ -124,8 +124,7 @@ for dirname, dirs, files in os.walk(os.getcwd()):
             if entry.is_file():
                 df = pd.read_excel(entry, engine='openpyxl')
                 
-                """
-                if "NASTY" in filename:
+                if "NASTY" in entry.name:
                     project_name = "PRJ_NASTY"
                     link_final = "https://research3.ipsosinteractive.com/mriweb/mriweb.dll?i.project=S22000742"
                     columns = nasty_columns
@@ -159,7 +158,6 @@ for dirname, dirs, files in os.walk(os.getcwd()):
 
                     df.loc[df["Khu vực"] == "HCM", "Khu vực"] = "Hồ Chí Minh"
                     df.loc[df["Khu vực"] == "HN", "Khu vực"] = "Hà Nội"
-                """
                 if "FIRST CLASS" in filename:
                     project_name = "PRJ_FIRST_CLASS"
                     link_final = "https://research3.ipsosinteractive.com/mriweb/mriweb.dll?i.project=S22000742"
@@ -182,7 +180,7 @@ for dirname, dirs, files in os.walk(os.getcwd()):
                     
                     df_participants = pd.concat([df_participants, df], ignore_index=False, axis=0)
     except BadZipfile as ex:
-        print("File '% s' is not a zip file." % filename)
+        print("File '% s' is not a zip file." % entry.name)
         
           
 df_participants.to_excel(writer, sheet_name="Participant")
