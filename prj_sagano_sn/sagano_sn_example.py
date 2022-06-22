@@ -303,7 +303,7 @@ df.drop(df.columns[0:6], axis=1, inplace=True)
 df["T1a"] = df[df.columns[0:6]].apply(lambda x : ','.join(x.astype(str)), axis=1)
 df.drop(df.columns[0:6], axis=1, inplace=True)
 
-df_2 = df.stack().str.split(',', expand=True).stack().unstack(-2).reset_index(-1, drop=True).reset_index().set_index(["InstanceID","TVC_SELECTED"])
+df_2 = df.stack().str.split(',', expand=True).stack().unstack(-2).reset_index(-1, drop=True).reset_index().set_index(["InstanceID","TVC_Level"])
 
 questions = ["InstanceID","_ST_TVC"]
 

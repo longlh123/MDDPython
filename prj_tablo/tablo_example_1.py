@@ -1,3 +1,4 @@
+from ensurepip import bootstrap
 import re
 import sys
 sys.path.append('c:\\Users\\long.pham\\Documents\\MDDPython')
@@ -37,51 +38,51 @@ df = m.convertToDataFrame()
 df = df.set_index("Respondent.ID")
 
 obj_skus_define = {
-    '_I1' : { 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I1a' : { 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội','Hải Phòng']},
-    '_I2' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I2a' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng']},
-    '_I3' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I3a' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng']},
-    '_I4a' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I4' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I5' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I6' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I7' : { 'variant' : 'Nội thất', 'segment' : 'Gía rẻ', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I8' : { 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I8a' : { 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội','Hải Phòng']},
-    '_I9' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I10' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I11' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I12' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I13' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I14' : { 'variant' : 'Nội thất', 'segment' : 'Gía rẻ', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I15' : { 'variant' : 'Nội thất', 'segment' : 'Gía rẻ', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E1' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E2' : { 'variant' : 'Ngoại thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E3' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E4' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']}, 
-    '_E4B' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']}, 
-    '_E4M' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E5' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E6' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E7' : { 'variant' : 'Ngoại thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E8' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E9' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E10' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E11' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_W1' : { 'variant' : 'Chống thấm', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_W3' : { 'variant' : 'Chống thấm', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Đà Nẵng']},
-    '_W2' : { 'variant' : 'Chống thấm', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_W4' : { 'variant' : 'Chống thấm', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội','Hải Phòng','Đà Nẵng']},
-    '_T1' : { 'variant' : 'Sơn dầu', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Cần Thơ','Đà Nẵng']},
-    '_T2' : { 'variant' : 'Sơn dầu', 'segment' : 'Trung cấp', 'cities' : ['Hồ Chí Minh','Cần Thơ']},
-    '_T3' : { 'variant' : 'Sơn dầu', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I5e' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_I6e' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E5e' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E12e' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']},
-    '_E13e' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội','Hải Phòng','Hồ Chí Minh','Cần Thơ','Đà Nẵng']}
+    '_I1' : { 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 9']},
+    '_I1a' : { 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng'], 'groups' : ['Group 9']},
+    '_I2' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 9']},
+    '_I2a' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng'], 'groups' : ['Group 9']},
+    '_I3' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 10']},
+    '_I3a' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng'], 'groups' : ['Group 10']},
+    '_I4a' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 12']},
+    '_I4' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 12']},
+    '_I5' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6', 'Group 13']},
+    '_I6' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6', 'Group 7', 'Group 13']},
+    '_I7' : { 'variant' : 'Nội thất', 'segment' : 'Gía rẻ', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 7']},
+    '_I8' : { 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 9']},
+    '_I8a' : { 'variant' : 'Nội thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng'], 'groups' : ['Group 9']},
+    '_I9' : { 'variant' : 'Nội thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 10']},
+    '_I10' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6']},
+    '_I11' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 12']},
+    '_I12' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6']},
+    '_I13' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6']},
+    '_I14' : { 'variant' : 'Nội thất', 'segment' : 'Gía rẻ', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 7']},
+    '_I15' : { 'variant' : 'Nội thất', 'segment' : 'Gía rẻ', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 6']},
+    '_E1' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 1']},
+    '_E2' : { 'variant' : 'Ngoại thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 2']},
+    '_E3' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 1']},
+    '_E4B' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 5']},
+    '_E4M' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 5']},
+    '_E4' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 5']},
+    '_E5' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 8', 'Group 13']},
+    '_E6' : { 'variant' : 'Ngoại thất', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 1']},
+    '_E7' : { 'variant' : 'Ngoại thất', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 2']},
+    '_E8' : { 'variant' : 'Ngoại thất', 'segment' : 'Cận cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 5']},
+    '_E9' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 8']},
+    '_E10' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 8']},
+    '_E11' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 8']},
+    '_W1' : { 'variant' : 'Chống thấm', 'segment' : 'Siêu cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 3']},
+    '_W3' : { 'variant' : 'Chống thấm', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Đà Nẵng'], 'groups' : ['Group 4']},
+    '_W2' : { 'variant' : 'Chống thấm', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 3']},
+    '_W4' : { 'variant' : 'Chống thấm', 'segment' : 'Cao cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Đà Nẵng'], 'groups' : ['Group 4']},
+    '_T1' : { 'variant' : 'Sơn dầu', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 11']},
+    '_T2' : { 'variant' : 'Sơn dầu', 'segment' : 'Trung cấp', 'cities' : ['Hồ Chí Minh', 'Cần Thơ'], 'groups' : ['Group 11']},
+    '_T3' : { 'variant' : 'Sơn dầu', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 11']},
+    '_I5e' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']},
+    '_I6e' : { 'variant' : 'Nội thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']},
+    '_E5e' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']},
+    '_E12e' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']},
+    '_E13e' : { 'variant' : 'Ngoại thất', 'segment' : 'Trung cấp', 'cities' : ['Hà Nội', 'Hải Phòng', 'Hồ Chí Minh', 'Cần Thơ', 'Đà Nẵng'], 'groups' : ['Group 13']}
 }
 
 cities = ["Hồ Chí Minh","Hà Nội", "Hải Phòng","Đà Nẵng", "Cần Thơ"]
@@ -146,14 +147,21 @@ df_merge.reset_index(inplace=True)
 df_q5b.to_excel(writer, sheet_name="Q5B")
 worksheet = writer.sheets["Q5B"]
 
-df_merge["PRICE"] = df_merge.apply(lambda x: x['Q5_PRICE'] if x['Q5_PRICE'] is not np.nan else x['Q5b_PRICE'], axis=1)
+df_merge["PRICE"] = df_merge.apply(lambda x: x['Q5_PRICE'] if x['Q5_PRICE'] > 0 else x['Q5b_PRICE'], axis=1)
 
+for k in obj_skus_define.keys():
+    df_merge.loc[df_merge["Q5_SKU"] == k, "GROUPS"] = ','.join(obj_skus_define[k]['groups'])
+
+df_merge.set_index(["Respondent.ID","_Q1","Q5_SKU","Q5_PRICE","Q5b_PRICE","PRICE"], inplace=True)
+
+df_merge = df_merge.stack().str.split(',', expand=True).stack().reset_index().rename(columns={0 : "GROUP"})
+df_merge.drop(["level_6","level_7"], axis=1, inplace=True)
+
+"""
 df_merge.to_excel(writer, sheet_name="Q5B_MERGE")
 worksheet = writer.sheets["Q5B_MERGE"]
 
 df_count = df_merge[["Respondent.ID","_Q1","Q5_SKU"]].groupby(["_Q1","Q5_SKU"], as_index=True).count().reset_index(-2, drop=False).reset_index(-1, drop=False)
-
-print(df_count)
 
 obj_counts = {}
 
@@ -192,90 +200,59 @@ for i, c in obj_counts.items():
     worksheet = writer.sheets[i]
 
 writer.save()
+"""
 
+presentation = Presentation()
+title_slide_layout = presentation.slide_layouts[0]
+slide = presentation.slides.add_slide(title_slide_layout)
+title = slide.shapes.title
+subtitle = slide.placeholders[1]
 
+title.text = "TABLO - SKU PRICE BY CITY"
+subtitle.text = "Python was here!"
 
+fig, ax = plt.subplots(nrows=1, ncols=1, figsize = (10, 6))
 
+for s in obj_skus_define.keys():
+    df_merge_filter = df_merge[df_merge["Q5_SKU"] == s]
+    
+    if not df_merge_filter.empty:
+        
+        ax.ticklabel_format(style='plain')
+            
+        boxplot = df_merge_filter.boxplot(column=["PRICE"], by="_Q1", ax=ax, rot=0, grid=True, showfliers=True, showmeans=True, meanline=True, sym="g o")
+        
+        for tick in range(len(boxplot.get_xticklabels())):
+            boxplot.text(tick-.2, 123, 212, horizontalalignment='center', color='w', weight='semibold')
 
+        boxplot.set_title("SKU {}".format(s[1:len(s)]))
+        boxplot.set_xlabel('City')
+        boxplot.set_ylabel('Price')
 
+        pic_name = 'plot{}.png'.format(s)
+        plt.savefig(r'{}/images/{}'.format(project_name, pic_name))
+        plt.cla()
+        
+        blank_slide_layout = presentation.slide_layouts[6]
+        slide = presentation.slides.add_slide(blank_slide_layout)
+        shapes = slide.shapes
+        
+        left = Inches(0)
+        top = Inches(1)
+        
+        pic = shapes.add_picture(r'{}/images/{}'.format(project_name, pic_name), left, top)
 
 """
 
-df_data = df.loc[:, ["_Q1","_Phase[{_1}]._Q5[{_1}]._Q5_SKU","_Phase[{_1}]._Q5[{_2}]._Q5_SKU","_Phase[{_1}]._Q5[{_3}]._Q5_SKU","_Phase[{_1}]._Q5[{_4}]._Q5_SKU","_Phase[{_1}]._Q5[{_5}]._Q5_SKU","_Phase[{_1}]._Q5[{_6}]._Q5_SKU","_Phase[{_1}]._Q5[{_1}]._Q5_GiaTien","_Phase[{_1}]._Q5[{_2}]._Q5_GiaTien","_Phase[{_1}]._Q5[{_3}]._Q5_GiaTien","_Phase[{_1}]._Q5[{_4}]._Q5_GiaTien","_Phase[{_1}]._Q5[{_5}]._Q5_GiaTien","_Phase[{_1}]._Q5[{_6}]._Q5_GiaTien"]]
+df_merge.boxplot(ax = ax, by="_Q1", column=["PRICE"], grid=True)
 
-#BAR CHART - 100% STACKED COLUMNS CHART
+plt.savefig(r'{}/images/{}'.format(project_name,"pic_name"))
 
-#Combine multiple columns into a single dataframe 
-df_data["Q5_SKU"] = df_data[df_data.columns[1:7]].apply(lambda x: ','.join(x.astype(str)), axis=1)
-df_data["Q5_PRICE"] = df_data[df_data.columns[7:13]].apply(lambda x: ','.join(x.astype(str)), axis=1)
-
-df_data.drop(df_data.columns[1:13], axis=1, inplace=True)
-
-df_data.reset_index(-1, drop=False, inplace=True)
-df_data.set_index(["Respondent.ID","_Q1"], drop=True, inplace=True, verify_integrity=False)
-
-df2 = df_data.stack().str.split(',', expand=True).stack().unstack(-2).reset_index(-1, drop=True).reset_index()
-
-df_3 = df2[["Respondent.ID","_Q1","Q5_SKU"]].groupby(["_Q1","Q5_SKU"], as_index=True).count().reset_index(-2, drop=False).reset_index(-1, drop=False)
-
-obj_counts = {}
-
-for i, s in obj_skus_define.items():
-    for j in cities:
-        if j not in obj_counts.keys():
-            obj_counts[j] = {}
-        if j in obj_skus_define[i]['cities']:
-            if i not in obj_counts[j].keys():
-                obj_counts[j][i] = {}
-            try:
-                obj_counts[j][i] = df_3.loc[(df_3["_Q1"] == j) & (df_3["Q5_SKU"] == i)]["Respondent.ID"].values[0]
-            except IndexError:
-                obj_counts[j][i] = 0
-
-writer = pd.ExcelWriter("{}/output_2.xlsx".format(project_name), engine='xlsxwriter')
-
-for i, c in obj_counts.items():
-    obj_city = {'sku_name' : [], 'ideal_sample' : [], 'current_sample' : [], 'remaining_sample' : []}
-    
-    if (i == "Hồ Chí Minh" or i == "Hà Nội"):
-        base = 15
-    elif i == "Hải Phòng":
-        base = 7
-    elif i == "Đà Nẵng":
-        base = 11
-    else:
-        base = 8
-
-    for j, b in c.items():
-        obj_city['sku_name'].append(j)
-        obj_city['ideal_sample'].append(b)
-        obj_city['current_sample'].append(base)
-        obj_city['remaining_sample'].append(base - b)
-    
-    df_4 = pd.DataFrame(data=obj_city)
-    df_4.to_excel(writer, sheet_name=i)
-    worksheet = writer.sheets[i]
-
-writer.save()
+plt.show()
 """
+pptx_name = 'python - tablo.pptx'
 
-
-
-
-
-#f_3.loc[df_3["_Q1"] == "Hồ Chí Minh", "SKU_BASE"] = 15 
-##df_3.loc[df_3["_Q1"] == "Cần Thơ", "SKU_BASE"] = 8 
-##df_3.loc[df_3["_Q1"] == "Hà Nội", "SKU_BASE"] = 15 
-#df_3.loc[df_3["_Q1"] == "Hải Phòng", "SKU_BASE"] = 7 
-#df_3.loc[df_3["_Q1"] == "Đà Nẵng", "SKU_BASE"] = 11 
-
-#df_3["SKU_TEMPT"] = df_3["SKU_BASE"] - df_3["Respondent.ID"]
-
-#writer = pd.ExcelWriter("output_2.xlsx", engine='xlsxwriter')
-
-##df_3.to_excel(writer, sheet_name="Output")
-#worksheet = writer.sheets["Output"]
-#writer.save()
+presentation.save('{}/{}'.format(project_name, pptx_name))
 
 """
 
@@ -379,8 +356,6 @@ pptx_name = 'python - tablo.pptx'
 presentation.save('{}/{}'.format(project_name, pptx_name))
 
 """
-
-
 
 
 
